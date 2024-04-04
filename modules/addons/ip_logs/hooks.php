@@ -41,7 +41,7 @@ add_hook('AdminAreaClientSummaryPage', 1, function ($vars) {
 
 	$userId = $vars['userid'];
 
-	$ipTable = Capsule::table('mod_ip_logs')->select('ip', 'login_datetime')->where('user_id', '=', $userId)->get();
+	$ipTable = Capsule::table('mod_ip_logs')->select('ip', 'login_datetime')->where('user_id', '=', $userId)->orderBy('login_datetime', 'desc')->get();
 
 	$output = '<div class="clientssummarybox">
 	<div class="title">IP History</div>
